@@ -1,0 +1,9 @@
+<div class="container">
+  <h3>Detalhes do dragao: {{dragao?.id}}</h3>
+  <h4>Nome</h4>
+  <p>{{ dragao?.name }}</p>
+  <h4>Tipo</h4>
+  <p>{{ dragao?.type }}</p>
+  <h4>Data de criação</h4>
+  <p>{{ dragao?.createdAt | date: 'dd/MM/yyyy HH:mm' }}</p>
+</div>

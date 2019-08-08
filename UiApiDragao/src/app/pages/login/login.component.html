@@ -1,0 +1,31 @@
+<div class="container">
+  <form [formGroup]="formLogin" (ngSubmit)="login(formLogin.value)">
+    <h4>Login</h4>
+    <span id="erro" *ngIf="erroLogin">Usuário ou senha incorretos</span>
+    <div class="form-group">
+      <input
+        placeholder="Usuário"
+        formControlName="usuario"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        placeholder="Senha"
+        formControlName="senha"
+        type="password"
+        class="form-control"
+      />
+    </div>
+
+    <button
+      [disabled]="!formLogin.valid"
+      type="submit"
+      class="btn"
+      [ngClass]="formLogin.valid ? 'btn-primary' : 'btn-default'"
+    >
+      Entrar
+    </button>
+  </form>
+</div>

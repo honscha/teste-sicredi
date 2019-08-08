@@ -1,0 +1,62 @@
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Nome</th>
+    <th class="text-center">Editar</th>
+    <th class="text-center">
+      <a class="adiciona" routerLink="/adicionar"
+        ><i class="fas fa-plus"></i
+      ></a>
+    </th>
+  </tr>
+  <tbody>
+    <tr
+      *ngFor="let dragao of dragoes | async; let index"
+      [ngClass]="{ deletado: isDragaoDeletado(dragao) }"
+    >
+      <td class="detalhes" (click)="navigateDetalhes(dragao)">
+        {{ dragao.id }}
+      </td>
+      <td class="detalhes">
+        <div
+          *ngIf="dragaoEdit != dragao; else editaNome"
+          (click)="navigateDetalhes(dragao)"
+        >
+          {{ dragao.name }}
+        </div>
+      </td>
+      <td
+        align="center"
+        (click)="createForm(dragao, index)"
+        *ngIf="dragaoEdit != dragao; else concluiEdicao"
+        class="edita"
+      >
+        <i *ngIf="!isDragaoDeletado(dragao)" class="fas fa-edit"></i>
+      </td>
+      <td
+        align="center"
+        class="deleta"
+        *ngIf="!isDragaoDeletado(dragao); else deleta"
+        (click)="deletaDragao(dragao.id)"
+      >
+        <i class="fas fa-minus-square"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #deleta>
+  <td class="undo" align="center" (click)="desfazDelecao()">
+    <i class="fas fa-undo"></i>
+  </td>
+</ng-template>
+
+<ng-template #editaNome>
+  <input [formControl]="formEdit" />
+</ng-template>
+
+<ng-template #concluiEdicao>
+  <td align="center" (click)="editaDragao()" class="edita">
+    <i class="fas fa-check"></i>
+  </td>
+</ng-template>

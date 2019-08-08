@@ -1,0 +1,44 @@
+tr {
+  .detalhes {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &:hover {
+    background-color: lightgray;
+  }
+}
+
+.deleta {
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: red;
+  }
+}
+
+.edita {
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: blue;
+  }
+}
+
+.undo:hover {
+  cursor: pointer;
+}
+
+.adiciona {
+  color: black;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: green;
+  }
+}
+
+.deletado {
+  background-color: lightcoral !important;
+}

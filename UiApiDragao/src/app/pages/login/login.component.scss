@@ -1,0 +1,10 @@
+span {
+  color: red;
+}
+
+button {
+  width: 100%;
+  & :disabled {
+    background-color: gray;
+  }
+}
